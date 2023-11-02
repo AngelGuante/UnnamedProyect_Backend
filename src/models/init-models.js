@@ -20,8 +20,8 @@ function initModels(sequelize) {
   user.hasMany(entryComment, { as: "entryComments", foreignKey: "userID"});
   userLoginMailMethod.belongsTo(user, { as: "User", foreignKey: "UserID"});
   user.hasMany(userLoginMailMethod, { as: "userLoginMailMethods", foreignKey: "UserID"});
-  userLoginMethod.belongsTo(user, { as: "ID_user", foreignKey: "ID"});
-  user.hasOne(userLoginMethod, { as: "userLoginMethod", foreignKey: "ID"});
+  user.belongsTo(userLoginMethod, { as: "LoginMethod", foreignKey: "LoginMethodID"});
+  userLoginMethod.hasMany(user, { as: "users", foreignKey: "LoginMethodID"});
 
   return {
     entry,

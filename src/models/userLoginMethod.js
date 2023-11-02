@@ -2,17 +2,15 @@ const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('userLoginMethod', {
     ID: {
+      autoIncrement: true,
+      autoIncrementIdentity: true,
       type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true,
-      references: {
-        model: 'user',
-        key: 'ID'
-      }
+      primaryKey: true
     },
     Name: {
       type: DataTypes.STRING(10),
-      allowNull: true
+      allowNull: false
     }
   }, {
     sequelize,

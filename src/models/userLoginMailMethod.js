@@ -2,21 +2,23 @@ const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('userLoginMailMethod', {
     ID: {
+      autoIncrement: true,
+      autoIncrementIdentity: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
     Mail: {
       type: DataTypes.STRING(20),
-      allowNull: true
+      allowNull: false
     },
     Password: {
       type: DataTypes.STRING(40),
-      allowNull: true
+      allowNull: false
     },
     UserID: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
       references: {
         model: 'user',
         key: 'ID'

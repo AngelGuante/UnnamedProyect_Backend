@@ -1,5 +1,9 @@
-require('dotenv').config()
+const { SERVER_PORT } = require('../utils/envVariables')
+const setRoutes = require('../routes')
 const express = require('express')
 const app = express()
 
-module.exports = InitExpress = () => app.listen(process.env.SERVER_PORT ?? 3000)
+app.use(express.json())
+setRoutes(app)
+
+module.exports = InitExpress = () => app.listen(SERVER_PORT ?? 3000)
