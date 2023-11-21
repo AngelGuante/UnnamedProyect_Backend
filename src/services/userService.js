@@ -15,7 +15,7 @@ const GetOne = async id => {
             ID: id
         }
     })
-    return responseModel(201, user)
+    return responseModel(200, user)
 }
 
 module.exports = {
